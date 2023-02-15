@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class StringLoops {
 
   // static methods go here
@@ -10,14 +12,36 @@ public class StringLoops {
     }
     return word;
     
-    
-    
-    
   }
+
+  public static int[] indexesOfAll(String text, String searchTerm) {
+    int count = 0;
+    for (int pos = 0; pos < text.length(); pos++) {
+      if (searchTerm.equals(text.substring(pos, pos+1))) {
+        count++;
+      }
+    }
+    if (count == 0) {
+      int[] empty = new int[0];
+      return empty;
+    } else {
+    int[] values = new int[count];
+    int index = 0;
+    for (int pos = 0; pos < text.length(); pos++) {
+      if (searchTerm.equals(text.substring(pos, pos+1))) {
+        values[index] = pos;
+        index++;
+      }
+    }
+    return values;
+  }
+  }
+
 
   public static void main(String[] args) {
   
-  System.out.println(reverseCharacters("chicken"));
+  //System.out.println(reverseCharacters("chicken"));
+  System.out.println(Arrays.toString(indexesOfAll("attack", "b")));
 
   }
 }
