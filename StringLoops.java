@@ -37,11 +37,21 @@ public class StringLoops {
   }
   }
 
+  public static boolean hasRepeatedConsecutives(String str) {
+    boolean hasRepeat = false;
+    for (int curPos = 0; curPos < str.length()-1; curPos++) {
+      int posAfter = curPos+1;
+      if (str.substring(curPos, curPos+1).equals(str.substring(posAfter, posAfter+1))) {
+        hasRepeat = true;
+      }
+    }
+    return hasRepeat;
+  }
 
   public static void main(String[] args) {
   
   //System.out.println(reverseCharacters("chicken"));
-  System.out.println(Arrays.toString(indexesOfAll("attack", "b")));
-
+  //System.out.println(Arrays.toString(indexesOfAll("attack", "b")));
+  System.out.println(hasRepeatedConsecutives("rook"));
   }
 }
